@@ -1,0 +1,26 @@
+//The information is located in this object within the results SearchResult.SearchResultItems[0].MatchedObjectDescriptor
+
+{
+    'Keywords': UserArea.Details.JobSummary,
+    'Location': PositionLocation[0].LocationName,
+    'Fields': JobCategory[0].Name,
+    'JobDetails': ApplyURI[0],
+    'DepartmentName': DepartmentName,
+    'JobCategory': JobCategory[0],
+    'PositionTitle': PositionTitle,
+    'PositionURI': PositionURI,
+    'UserDetails': UserArea.Details,
+    'Salary': {
+      PositionRemuneration[0].MaximumRange,
+      PositionRemuneration[0].MinimumRange,
+      PositionRemuneration[0].RateIntervalCode
+    }
+  
+  }
+  
+  {
+      washington: "0",
+
+  }
+
+  

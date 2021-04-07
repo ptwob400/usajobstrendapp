@@ -35,7 +35,7 @@ function DropDownMenu () {
                     onChange={handleUpdateCategory} 
                     labelId="label-select-category" 
                     id="select" 
-                    value="category"
+                    value={category}
                 >
                     <MenuItem value=""><em>Select a Category</em></MenuItem>
                     <MenuItem value="Locations">Locations</MenuItem>

@@ -14,7 +14,9 @@ import {
 import About from './components/About.js'
 
 function App() {
-  const [jobs, setJobs] = useState({})
+
+  const [ jobs, setJobs ] = useState({})
+  const [ category, setCategory ] = useState("")
 
   useEffect(() => {
     const url = "https://data.usajobs.gov/api/search?JobCategoryCode=2210"
@@ -37,8 +39,9 @@ function App() {
   }, []);
 
   return (
+
     <div className="App">
-      <jobsContext.Provider value={jobs}>
+       <jobsContext.Provider value={{jobs:jobs, category:category, setCategory:setCategory}}>
         <Router>
           <NavBar />
           <Switch>

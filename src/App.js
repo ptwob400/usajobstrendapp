@@ -9,6 +9,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 function App() {
   const [ jobs, setJobs ] = useState({})
+  const [ category, setCategory ] = useState("")
 
   useEffect(()=>{
     const url = "https://data.usajobs.gov/api/search?JobCategoryCode=2210"
@@ -31,7 +32,7 @@ function App() {
   }, []);
 
   return (
-    <jobsContext.Provider value={jobs}>
+    <jobsContext.Provider value={{jobs:jobs, category:category, setCategory:setCategory}}>
       <Router>
       <div className="App">
         <NavBar />

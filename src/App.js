@@ -5,13 +5,20 @@ import NavBar from './components/NavBar.js'
 import MainContent from './components/MainContent.js'
 import FooterContent from './components/FooterContent.js'
 import Jobs from './data/ExampleResults.json'
-import { BrowserRouter as Router } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom'
+import About from './components/About.js'
 
 function App() {
+
   const [ jobs, setJobs ] = useState({})
   const [ category, setCategory ] = useState("")
 
-  useEffect(()=>{
+  useEffect(() => {
     const url = "https://data.usajobs.gov/api/search?JobCategoryCode=2210"
     setJobs(Jobs)
     // fetch(url, {
@@ -32,15 +39,23 @@ function App() {
   }, []);
 
   return (
-    <jobsContext.Provider value={{jobs:jobs, category:category, setCategory:setCategory}}>
-      <Router>
-      <div className="App">
-        <NavBar />
-        <MainContent />
+
+    <div className="App">
+       <jobsContext.Provider value={{jobs:jobs, category:category, setCategory:setCategory}}>
+        <Router>
+          <NavBar />
+          <Switch>
+            <Route exact path='/'>
+              <MainContent />
+            </Route>
+            <Route path='/about'>
+              <About />
+            </Route>
+          </Switch>
+        </Router>
         <FooterContent />
-      </div>
-      </Router>
-    </jobsContext.Provider>
+      </jobsContext.Provider>
+    </div>
   );
 }
 

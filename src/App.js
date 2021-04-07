@@ -12,6 +12,7 @@ import {
   Link
 } from 'react-router-dom'
 import About from './components/About.js'
+import formatJSON from './utils/FormatJSON.js'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
   useEffect(() => {
     const url = "https://data.usajobs.gov/api/search?JobCategoryCode=2210"
     setJobs(Jobs)
+    console.log(Jobs)
     // fetch(url, {
     //   method: 'GET',
     //   headers: {

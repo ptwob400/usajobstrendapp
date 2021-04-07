@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import jobsContext from './context/jobsContext.js'
 import './App.css';
 import NavBar from './components/NavBar.js'
 import MainContent from './components/MainContent.js'
@@ -12,7 +13,7 @@ function App() {
 
   useEffect(()=>{
     const url = "https://data.usajobs.gov/api/search?JobCategoryCode=2210"
-    setJobs(jobs)
+    setJobs(Jobs)
     // fetch(url, {
     //   method: 'GET',
     //   headers: {
@@ -31,15 +32,6 @@ function App() {
   }, []);
 
   return (
-<<<<<<< Updated upstream
-    <Router>
-    <div className="App">
-      <NavBar />
-      <MainContent />
-      <FooterContent />
-    </div>
-    </Router>
-=======
     <jobsContext.Provider value={{jobs:jobs, category:category, setCategory:setCategory}}>
       <Router>
       <div className="App">
@@ -49,7 +41,6 @@ function App() {
       </div>
       </Router>
     </jobsContext.Provider>
->>>>>>> Stashed changes
   );
 }
 

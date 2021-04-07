@@ -21,6 +21,7 @@ function App() {
   useEffect(() => {
     const url = "https://data.usajobs.gov/api/search?JobCategoryCode=2210"
     setJobs(Jobs)
+    console.log(Jobs)
     // fetch(url, {
     //   method: 'GET',
     //   headers: {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import States from '../data/States.json'
+import sortSlice10 from '../utils/SortSlice.js'
 const statenumbers = {}
 
 
@@ -29,17 +30,12 @@ function Top10Locations() {
         })
     }, [])
 
-    function sortSlice10(arr) {
-        arr.sort((a, b) => { return b.count - a.count })
-        return arr.slice(0, 10)
-    }
-
     return (
         <article>
             <h2>Top 10 Locations by Number of Available Jobs</h2>
             <ol>
                 {sortSlice10(states).map(obj => {
-                    return <li>{obj.state} - Count: {obj.count}</li>
+                    return <li>{obj.state} - Number of jobs available: {obj.count}</li>
                 })}
             </ol>
         </article>

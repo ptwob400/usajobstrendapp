@@ -7,7 +7,7 @@
 import Keywords from '../data/Keywords.json'
 import { useEffect, useState } from 'react'
 import sortSlice10 from '../utils/SortSlice.js'
-import Top10ResultLinkEntry from './Top10ResultLinkEntry
+import Top10ResultLinkEntry from './Top10ResultLinkEntry'
 
 function Top10Keywords() {
     const [keywords, setKeywords] = useState([]);

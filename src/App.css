@@ -7,14 +7,18 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100px;
-  max-height: 10%;
+  min-height: 175px;
+  max-height: 250px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: darkred;
+}
+
+link.App-header:visited {
+  color: darkred;
 }
 
 .Body {

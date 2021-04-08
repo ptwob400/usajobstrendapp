@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import Fields from '../data/Fields.js'
 import sortSlice10 from '../utils/SortSlice.js'
+import { CircularProgress } from '@material-ui/core'
 var fieldsArray = Fields.split(',')
-
 
 function Top10Fields() {
     const [fields, setFields] = useState([])
+    const [isloaded, setloaded] = useState(false)
 
     useEffect(() => {
         fieldsArray.forEach((field) => {
@@ -26,18 +27,26 @@ function Top10Fields() {
                         newFields.push({ "field": field, "count": data.SearchResult.SearchResultCountAll });
                         return newFields
                     })
+                return data;
                 })
+                .then(data => {setloaded(true)})
         })
     }, [])
+
+    const loadingBar = isloaded ?
+    (
+        <ol>
+        {sortSlice10(fields).map(obj => {
+            return <li><a href={`https://www.usajobs.gov/Search/Results?p=1&k=${obj.field}`}>{obj.field} - Number of jobs available: {obj.count}</a></li>
+        })}
+        </ol>
+    ) :
+    <div><CircularProgress /></div>
 
     return (
         <article>
             <h2>Top 10 Fields by Number of Available Jobs</h2>
-            <ol>
-                {sortSlice10(fields).map(obj => {
-                    return <li><a href={`https://www.usajobs.gov/Search/Results?p=1&k=${obj.field}`}>{obj.field} - Number of jobs available: {obj.count}</a></li>
-                })}
-            </ol>
+            {loadingBar}
         </article>
     )
 }

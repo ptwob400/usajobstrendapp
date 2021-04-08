@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import States from '../data/States.json'
 import sortSlice10 from '../utils/SortSlice.js'
-const statenumbers = {}
+
 
 
 function Top10Locations() {
@@ -9,7 +9,7 @@ function Top10Locations() {
 
     useEffect(() => {
         States.forEach((state) => {
-            const url = `https://data.usajobs.gov/api/search?Keyword=${state}&ResultsPerPage=1&Fields=min`;
+            const url = `https://data.usajobs.gov/api/search?LocationName=${state}&ResultsPerPage=1&Fields=min`;
             fetch(url, {
                 method: 'GET',
                 headers: {
@@ -35,7 +35,7 @@ function Top10Locations() {
             <h2>Top 10 Locations by Number of Available Jobs</h2>
             <ol>
                 {sortSlice10(states).map(obj => {
-                    return <li>{obj.state} - Number of jobs available: {obj.count}</li>
+                    return <li><a href={`https://www.usajobs.gov/Search/Results?l=${obj.state}`}>{obj.state} - Number of jobs available: {obj.count}</a></li>
                 })}
             </ol>
         </article>
@@ -43,7 +43,3 @@ function Top10Locations() {
 }
 
 export default Top10Locations;
-
-// {newStates.map(obj => {
-//     return <nl>{obj.state} - Count:{obj.count}</nl>
-// })}

@@ -7,9 +7,7 @@
 import Keywords from '../data/Keywords.json'
 import { useEffect, useState } from 'react'
 import sortSlice10 from '../utils/SortSlice.js'
-import Top10ResultLinkEntry from './Top10ResultLinkEntry'
-
-
+import Top10ResultLinkEntry from './Top10ResultLinkEntry
 
 function Top10Keywords() {
     const [keywords, setKeywords] = useState([]);
@@ -39,7 +37,7 @@ function Top10Keywords() {
 
     return (
         <article>
-            <h2>Top 10 Locations by Number of Available Jobs</h2>
+             <h2>Top 10 Industry Pre-Defined Keywords results</h2>
             <ol>
                 {sortSlice10(keywords).map(obj => {
                     return <Top10ResultLinkEntry type={'k'} name={obj.word} count={obj.count}/>

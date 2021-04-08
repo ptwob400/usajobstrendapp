@@ -3,15 +3,12 @@ import States from '../data/States.json'
 import sortSlice10 from '../utils/SortSlice.js'
 import Top10ResultLinkEntry from './Top10ResultLinkEntry'
 
-const statenumbers = {}
-
-
 function Top10Locations() {
     const [states, setStates] = useState([])
 
     useEffect(() => {
         States.forEach((state) => {
-            const url = `https://data.usajobs.gov/api/search?Keyword=${state}&ResultsPerPage=1&Fields=min`;
+            const url = `https://data.usajobs.gov/api/search?LocationName=${state}&ResultsPerPage=1&Fields=min`;
             fetch(url, {
                 method: 'GET',
                 headers: {
@@ -45,7 +42,3 @@ function Top10Locations() {
 }
 
 export default Top10Locations;
-
-// {newStates.map(obj => {
-//     return <nl>{obj.state} - Count:{obj.count}</nl>
-// })}

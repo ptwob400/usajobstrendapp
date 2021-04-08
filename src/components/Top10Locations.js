@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import States from '../data/States.json'
 import sortSlice10 from '../utils/SortSlice.js'
-
-
+import Top10ResultLinkEntry from './Top10ResultLinkEntry'
 
 function Top10Locations() {
     const [states, setStates] = useState([])
@@ -35,7 +34,7 @@ function Top10Locations() {
             <h2>Top 10 Locations by Number of Available Jobs</h2>
             <ol>
                 {sortSlice10(states).map(obj => {
-                    return <li><a href={`https://www.usajobs.gov/Search/Results?l=${obj.state}`}>{obj.state} - Number of jobs available: {obj.count}</a></li>
+                    return <Top10ResultLinkEntry type={'l'} name={obj.state} count={obj.count}/>
                 })}
             </ol>
         </article>

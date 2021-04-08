@@ -2,6 +2,7 @@
   text-align: center;
   display: grid;
   grid-template-rows: auto auto auto;
+  list-style-position: inside;
 }
 
 .App-header {

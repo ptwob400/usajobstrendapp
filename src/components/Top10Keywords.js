@@ -6,6 +6,7 @@
 // [X] display each item in this array in cards in descending order with the results number
 import Keywords from '../data/Keywords.json'
 import { useEffect, useState } from 'react'
+import sortSlice10 from '../utils/SortSlice.js'
 
 
 
@@ -36,7 +37,14 @@ function Top10Keywords() {
     }, [])
 
     return (
-        <article>{JSON.stringify(keywords.sort( (a,b) => { return b.count - a.count   }))}</article>
+        <article>
+            <h2>Top 10 Industry Pre-Defined Keyword results</h2>
+            <ol>
+                {sortSlice10(keywords).map(word => {
+                    return <li>{word.word} - Number of jobs available: {word.count}</li>
+                })}
+            </ol>
+        </article>
     )
 }
 

@@ -1,12 +1,12 @@
 .App-footer {
     background-color: #282c34;
-    grid-row: 3/4;
-    min-height: 100px;
-    max-height: 10%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    font-size: 15px;
+    color: rgb(160, 160, 160);
   }

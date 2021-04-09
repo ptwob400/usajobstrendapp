@@ -21,31 +21,30 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 function DropDownMenu () {
-    const { category, setCategory } = useContext(jobsContext);
+    const { filter,  setFilter } = useContext(jobsContext);
     const classes = useStyles();
     
     const handleUpdateCategory = (event) => {
-        setCategory(event.target.value);
+        setFilter(event.target.value);
     }
 
     return (
         <div id="category-dropdown">
             <FormControl className={classes.formControl}>
-                <InputLabel id="label-select-category">Trend Category</InputLabel>
+                <InputLabel id="label-select-category">Filter</InputLabel>
                 <Select 
                     onChange={handleUpdateCategory} 
                     labelId="label-select-category" 
                     id="select" 
-                    value={category}
+                    value={filter}
                 >
-                    <MenuItem value=""><em>Select a Category</em></MenuItem>
-                    <MenuItem value="Locations">Locations</MenuItem>
-                    <MenuItem value="Fields">Fields</MenuItem>
-                    <MenuItem value="Keywords">Keywords</MenuItem>
+                    <MenuItem value=""></MenuItem>
+                    <MenuItem value="PositionSchedule=1">Full-Time</MenuItem>
+                    <MenuItem value="PositionSchedule=2">Part-Time</MenuItem>
                 </Select>
  
             </FormControl>
-        <div>{category}</div>
+        <div>{filter}</div>
         </div>
     )
 }

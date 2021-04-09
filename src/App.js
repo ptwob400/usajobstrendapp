@@ -1,29 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import jobsContext from './context/jobsContext.js'
 import './App.css';
 import NavBar from './components/NavBar.js'
 import MainContent from './components/MainContent.js'
 import HomeContent from './components/HomeContent.js'
 import FooterContent from './components/FooterContent.js'
-import Jobs from './data/ExampleResults.json'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 import About from './components/About.js'
-import formatJSON from './utils/FormatJSON.js'
 
 function App() {
-
-  const [ jobs, setJobs ] = useState({})
-  const [ category, setCategory ] = useState("")
+  const [ filter, setFilter ] = useState("")
+  const [ fields, setFields ] = useState([])
+  const [ keywords, setKeywords ] = useState([]);
+  const [ locations, setLocations ] = useState([])
 
   return (
 
     <div className="App">
-       <jobsContext.Provider value={{jobs:jobs, category:category, setCategory:setCategory}}>
+       <jobsContext.Provider value={{
+          filter, 
+          setFilter, 
+          fields, 
+          setFields,
+          keywords,
+          setKeywords,
+          locations, 
+          setLocations
+        }}>
         <Router>
           <NavBar />
           <Switch>

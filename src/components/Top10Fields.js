@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
+import jobsContext from '../context/jobsContext.js'
 import Fields from '../data/Fields.js'
 import sortSlice10 from '../utils/SortSlice.js'
-import { CircularProgress } from '@material-ui/core'
+import { CircularProgress, Button } from '@material-ui/core'
 import Top10ResultLinkEntry from './Top10ResultLinkEntry'
 
 var fieldsArray = Fields.split(',')
 
 function Top10Fields() {
-    const [fields, setFields] = useState([])
+    const { filter, fields, setFields } = useContext(jobsContext)
     const [isloaded, setloaded] = useState(false)
 
     useEffect(() => {
+        setFields([])
+        setloaded(false)
         fieldsArray.forEach((field) => {
-            const url = `https://data.usajobs.gov/api/search?keyword=${field}&ResultsPerPage=1&Fields=min`;
+            const url = `https://data.usajobs.gov/api/search?keyword=${field}&ResultsPerPage=1&Fields=min${filter ? "&" + filter : ""}`;
             fetch(url, {
                 method: 'GET',
                 headers: {
@@ -29,18 +32,17 @@ function Top10Fields() {
                         newFields.push({ "field": field, "count": data.SearchResult.SearchResultCountAll });
                         return newFields
                     })
-                return data;
+                return true;
                 })
                 .then(data => {setloaded(true)})
         })
-    }, [])
+    }, [filter, setFields])
 
     const loadingBar = isloaded ?
     (
         <ol>
         {sortSlice10(fields).map(obj => {
-            return <Top10ResultLinkEntry type={'k'} name={obj.field} count={obj.count}/>
-
+            return <li><Button href={`https://www.usajobs.gov/Search/Results?p=1&k=${obj.field}`} style={{fontWeight: "750", color: "#314570"}}>{obj.field} - Jobs Available: {obj.count}</Button></li>
         })}
         </ol>
     ) :

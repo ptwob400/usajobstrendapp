@@ -12,8 +12,9 @@ body {
 }
 
 .App {
-  text-align: center;
+  list-style-position: inside;
   display: grid;
+
   grid-template-rows: auto 1fr auto;
   list-style-position: inside;
   height: 100vh;
@@ -26,5 +27,4 @@ body {
   min-height: 500px;
   max-height: 80%;
 }
-
 

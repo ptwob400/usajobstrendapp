@@ -5,19 +5,21 @@
 // [X] from the results, store the value of the "SearchResultCountAll" key in an array. 
 // [X] display each item in this array in cards in descending order with the results number
 import Keywords from '../data/Keywords.json'
-import { useEffect, useState } from 'react'
+import { useEffect, useContext } from "react"
+import jobsContext from '../context/jobsContext.js'
 import sortSlice10 from '../utils/SortSlice.js'
 import Top10ResultLinkEntry from './Top10ResultLinkEntry'
 
 function Top10Keywords() {
-    const [keywords, setKeywords] = useState([]);
+    const { filter, keywords, setKeywords } = useContext(jobsContext);
 
     useEffect(() => {
+        setKeywords([])
         Keywords.forEach((word) => {
-            const url = `https://data.usajobs.gov/api/search?Keyword=${word}&ResultsPerPage=1&Fields=min`;
+            const url = `https://data.usajobs.gov/api/search?Keyword=${word}&ResultsPerPage=1&Fields=min${filter ? "&" + filter : ""}`;
             fetch(url, {
                 method: 'GET',
-                headers: {
+                headers: { 
                   'Content-Type': 'application/json',
                   'User-Agent': 'gordon.deng.1@us.af.mil',
                   'Host': 'data.usajobs.gov',
@@ -33,7 +35,7 @@ function Top10Keywords() {
                     })
                 })
         })
-    }, [])
+    }, [filter, setKeywords])
 
     return (
         <article>

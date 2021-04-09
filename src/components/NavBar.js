@@ -40,13 +40,9 @@ import './NavBar.css'
 function NavBar() {
     return (
         <header className="Nav-header">
-            <Link to='/' style={{textDecoration: 'none'}}>
-                <ButtonBase
-                    style={{margin: 15, backgroundColor: 'darkred', fontSize: 25, fontFamily: 'Roboto',}}
-                >
-                    <img src={Logo} style={{height: "75px", width: "150px"}}></img>
-                </ButtonBase>
-            </Link>
+            <div>
+                USAJobs Today
+            </div>
             <div>            
                 <Link to='/' style={{textDecoration: 'none'}}>
                     <Button

@@ -42,7 +42,7 @@ function Top10Fields() {
     (
         <ol>
         {sortSlice10(fields).map(obj => {
-            return <li><Button href={`https://www.usajobs.gov/Search/Results?p=1&k=${obj.field}`} style={{fontWeight: "750", color: "#314570"}}>{obj.field} - Jobs Available: {obj.count}</Button></li>
+            return <Top10ResultLinkEntry type={'l'} name={obj.field} count={obj.count}/>
         })}
         </ol>
     ) :

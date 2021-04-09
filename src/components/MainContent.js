@@ -15,17 +15,17 @@ function MainContent() {
             </Grid>
             <Grid container justify='center'>
                 <Grid item>
-                    <Paper style={{ padding: 10, margin: 15}}>
+                    <Paper style={{ padding: 10, margin: 15, backgroundColor: "WhiteSmoke"}}>
                     <Top10Keywords />
                     </Paper>
                 </Grid>
                 <Grid item>
-                <Paper style={{ padding: 10, margin: 15}}>
+                <Paper style={{ padding: 10, margin: 15, backgroundColor: "WhiteSmoke"}}>
                     <Top10Locations />
                     </Paper>
                 </Grid>
                 <Grid item>
-                <Paper style={{ padding: 10, margin: 15}}>
+                <Paper style={{ padding: 10, margin: 15, backgroundColor: "WhiteSmoke"}}>
                     <Top10Fields />
                     </Paper>
                 </Grid>

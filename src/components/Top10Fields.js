@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Fields from '../data/Fields.js'
 import sortSlice10 from '../utils/SortSlice.js'
-import { CircularProgress } from '@material-ui/core'
+import { CircularProgress, Button } from '@material-ui/core'
 var fieldsArray = Fields.split(',')
 
 function Top10Fields() {
@@ -37,7 +37,7 @@ function Top10Fields() {
     (
         <ol>
         {sortSlice10(fields).map(obj => {
-            return <li><a href={`https://www.usajobs.gov/Search/Results?p=1&k=${obj.field}`}>{obj.field} - Number of jobs available: {obj.count}</a></li>
+            return <li><Button href={`https://www.usajobs.gov/Search/Results?p=1&k=${obj.field}`} style={{fontWeight: "750", color: "#314570"}}>{obj.field} - Jobs Available: {obj.count}</Button></li>
         })}
         </ol>
     ) :

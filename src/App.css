@@ -1,44 +1,37 @@
 .App {
-  text-align: center;
+  list-style-position: inside;
   display: grid;
   grid-template-rows: auto auto auto;
-  list-style-position: inside;
+  position: relative;
+  min-height: 100vh;
+  background-color: #bfc5da;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 175px;
-  max-height: 250px;
+  max-height: 15vh;
+  grid-row: 1;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
   font-size: calc(10px + 2vmin);
-  color: darkred;
-}
-
-link.App-header:visited {
-  color: darkred;
 }
 
 .Body {
-  min-height: 500px;
-  max-height: 80%;
-}
-
-.About {
-  min-height: 500px;
-  max-height: 80%;  
+  color: #703149;
+  font-family: Roboto;
+  font-weight: 700;
 }
 
 .App-footer {
   background-color: #282c34;
-  min-height: 100px;
-  max-height: 10%;
+  grid-row: -1;
+  position: relative;
+  bottom: 0;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-size: 15px;
+  color: grey;
 }

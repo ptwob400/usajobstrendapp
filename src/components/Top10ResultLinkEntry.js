@@ -5,7 +5,7 @@ function Top10ResultLinkEntry({ type, name, count }) {
   }
 
   return (
-    <li><a href= {`https://www.usajobs.gov/Search/Results?${type}=${name}`}>{name} - Number of jobs available: {count}</a></li>
+    <li><a href= {`https://www.usajobs.gov/Search/Results?${type}=${name}`}>{name} - Jobs Available: {count}</a></li>
   )
 }
 

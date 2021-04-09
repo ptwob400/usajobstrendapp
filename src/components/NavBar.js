@@ -6,19 +6,20 @@ import {
 } from 'react-router-dom'
 import { Grid, Paper } from '@material-ui/core';
 import HomeTwoToneIcon from '@material-ui/icons/Home';
-import { Button } from '@material-ui/core';
+import { Button, ButtonBase } from '@material-ui/core';
 import InfoTwoToneIcon from '@material-ui/icons/InfoTwoTone';
 import HttpTwoToneIcon from '@material-ui/icons/HttpTwoTone';
+import Logo from '../assets/Logo.JPG'
 
 function NavBar() {
     return (
         <header className="App-header">
             <Link to='/' style={{textDecoration: 'none'}}>
-            <Button
+            <ButtonBase
                     style={{margin: 15, backgroundColor: 'darkred', fontSize: 25, fontFamily: 'Roboto',}}
                 >
-                    USAJobs Today
-                </Button>
+                    <img src={Logo} style={{height: "75px", width: "150px"}}></img>
+                </ButtonBase>
             </Link>
             <div>            
                 <Link to='/' style={{textDecoration: 'none'}}>
@@ -36,6 +37,7 @@ function NavBar() {
                     color="secondary"
                     startIcon={<HttpTwoToneIcon />}
                     style={{margin: 15, backgroundColor: 'cadetblue'}}
+                    href='https://www.usajobs.gov/'
                 >
                     USAJobs.gov
                 </Button>

@@ -2,9 +2,11 @@ import { useEffect, useState } from "react"
 import States from '../data/States.json'
 import sortSlice10 from '../utils/SortSlice.js'
 import Top10ResultLinkEntry from './Top10ResultLinkEntry'
+import { CircularProgress } from '@material-ui/core'
 
 function Top10Locations() {
     const [states, setStates] = useState([])
+    const [isloaded, setloaded] = useState(false)
 
     useEffect(() => {
         States.forEach((state) => {
@@ -26,17 +28,24 @@ function Top10Locations() {
                         return newStates
                     })
                 })
+                .then(data => {setloaded(true)})
         })
     }, [])
 
-    return (
-        <article>
-            <h2>Top 10 Locations by Number of Available Jobs</h2>
+    const loadingBar = isloaded ?
+        (
             <ol>
                 {sortSlice10(states).map(obj => {
                     return <Top10ResultLinkEntry type={'l'} name={obj.state} count={obj.count}/>
                 })}
             </ol>
+        ) :
+        <div><CircularProgress /></div>
+
+    return (
+        <article>
+            <h2>Top 10 Locations by Number of Available Jobs</h2>
+            {loadingBar}
         </article>
     )
 }

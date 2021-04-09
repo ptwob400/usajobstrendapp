@@ -42,7 +42,7 @@ function Top10Fields() {
     (
         <ol>
         {sortSlice10(fields).map(obj => {
-            return <Top10ResultLinkEntry type={'l'} name={obj.field} count={obj.count}/>
+            return <Top10ResultLinkEntry type={'k'} name={obj.field} count={obj.count}  filter={filter}/>
         })}
         </ol>
     ) :

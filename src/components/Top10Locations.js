@@ -38,7 +38,7 @@ function Top10Locations() {
         (
             <ol>
                 {sortSlice10(locations).map(obj => {
-                    return <Top10ResultLinkEntry type={'l'} name={obj.state} count={obj.count}/>
+                    return <Top10ResultLinkEntry type={'l'} name={obj.state} count={obj.count} filter={filter} />
                 })}
             </ol>
         ) :

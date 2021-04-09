@@ -44,7 +44,7 @@ function Top10Keywords() {
         (
             <ol>
                 {sortSlice10(keywords).map(obj => {
-                    return <Top10ResultLinkEntry type={'k'} name={obj.word} count={obj.count} />
+                    return <Top10ResultLinkEntry type={'k'} name={obj.word} count={obj.count}  filter={filter} />
                 })}
             </ol>
         ) :

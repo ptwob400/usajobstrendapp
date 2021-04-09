@@ -3,6 +3,7 @@ import jobsContext from './context/jobsContext.js'
 import './App.css';
 import NavBar from './components/NavBar.js'
 import MainContent from './components/MainContent.js'
+import HomeContent from './components/HomeContent.js'
 import FooterContent from './components/FooterContent.js'
 import Jobs from './data/ExampleResults.json'
 import {
@@ -19,26 +20,6 @@ function App() {
   const [ jobs, setJobs ] = useState({})
   const [ category, setCategory ] = useState("")
 
-  useEffect(() => {
-    const url = "https://data.usajobs.gov/api/search?JobCategoryCode=2210"
-    setJobs(Jobs)
-    // fetch(url, {
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'User-Agent': 'gordon.deng.1@us.af.mil',
-    //     'Host': 'data.usajobs.gov',
-    //     'Authorization-Key': '8anoUcMouBmDxVIpesVxLsxa0z2IyHXh2bL7iHZdvOA='
-    //   }
-    // })
-    //   .then( response => response.json())
-    //   .then( data => {
-    //     console.log(data)
-    //     setJobs(data)
-    //    } )
-    //    .catch((e)=>console.log(e))
-  }, []);
-
   return (
 
     <div className="App">
@@ -47,6 +28,9 @@ function App() {
           <NavBar />
           <Switch>
             <Route exact path='/'>
+              <HomeContent />
+            </Route>
+            <Route path='/trends'>
               <MainContent />
             </Route>
             <Route path='/about'>

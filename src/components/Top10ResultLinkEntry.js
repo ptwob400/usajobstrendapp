@@ -1,3 +1,5 @@
+import './Top10ResultLinkEntry.css'
+
 
 function Top10ResultLinkEntry({ type, name, count }) {
   if(type !== 'l' && type !== 'k'){
@@ -5,7 +7,7 @@ function Top10ResultLinkEntry({ type, name, count }) {
   }
 
   return (
-    <li><a href= {`https://www.usajobs.gov/Search/Results?${type}=${name}`}>{name} - Number of jobs available: {count}</a></li>
+    <li><a className="result-item" href= {`https://www.usajobs.gov/Search/Results?${type}=${name}`}>{name} - Jobs: {count}</a></li>
   )
 }
 

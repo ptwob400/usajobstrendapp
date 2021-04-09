@@ -1,55 +1,27 @@
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from 'react-router-dom'
-import { Grid, Paper } from '@material-ui/core';
-import HomeTwoToneIcon from '@material-ui/icons/Home';
-import { Button } from '@material-ui/core';
-import InfoTwoToneIcon from '@material-ui/icons/InfoTwoTone';
-import HttpTwoToneIcon from '@material-ui/icons/HttpTwoTone';
+import { NavLink}  from 'react-router-dom'
+
+
+import './NavBar.css'
 
 function NavBar() {
     return (
-        <header className="App-header">
-            <Link to='/' style={{textDecoration: 'none'}}>
-            <Button
-                    style={{margin: 15, backgroundColor: 'darkred', fontSize: 25, fontFamily: 'Roboto',}}
-                >
-                    USAJobs Today
-                </Button>
-            </Link>
-            <div>            
-                <Link to='/' style={{textDecoration: 'none'}}>
-                <Button
-                    variant="contained"
-                    color="secondary"
-                    startIcon={<HomeTwoToneIcon />}
-                    style={{margin: 15, backgroundColor: 'cadetblue'}}
-                >
+        <header className="Nav-header">
+            <h1>
+                <NavLink exact to='/' activeClassName="active-link" >
+                    USJOBS Today
+                </NavLink>
+            </h1>
+            <nav>            
+                <NavLink exact to='/'  activeClassName="active-link" >
                     Home
-                </Button>
-                </Link>
-                <Button
-                    variant="contained"
-                    color="secondary"
-                    startIcon={<HttpTwoToneIcon />}
-                    style={{margin: 15, backgroundColor: 'cadetblue'}}
-                >
-                    USAJobs.gov
-                </Button>
-                <Link to='/about' style={{textDecoration: 'none'}}>
-                <Button
-                    variant="contained"
-                    color="secondary"
-                    startIcon={<InfoTwoToneIcon />}
-                    style={{margin: 15, backgroundColor: 'cadetblue'}}
-                >
+                </NavLink>
+                <NavLink to='/trends'  activeClassName="active-link" >
+                    Trends
+                </NavLink>
+                <NavLink to='/about'  activeClassName="active-link" >
                     About
-                </Button>
-                </Link>
-            </div>
+                </NavLink>
+            </nav>
         </header>
     )
 }

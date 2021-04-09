@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import Fields from '../data/Fields.js'
 import sortSlice10 from '../utils/SortSlice.js'
 import { CircularProgress } from '@material-ui/core'
+import Top10ResultLinkEntry from './Top10ResultLinkEntry'
+
 var fieldsArray = Fields.split(',')
 
 function Top10Fields() {
@@ -37,7 +39,8 @@ function Top10Fields() {
     (
         <ol>
         {sortSlice10(fields).map(obj => {
-            return <li><a href={`https://www.usajobs.gov/Search/Results?p=1&k=${obj.field}`}>{obj.field} - Number of jobs available: {obj.count}</a></li>
+            return <Top10ResultLinkEntry type={'k'} name={obj.field} count={obj.count}/>
+
         })}
         </ol>
     ) :

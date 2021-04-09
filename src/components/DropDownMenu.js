@@ -44,7 +44,6 @@ function DropDownMenu () {
                 </Select>
  
             </FormControl>
-        <div>{filter}</div>
         </div>
     )
 }

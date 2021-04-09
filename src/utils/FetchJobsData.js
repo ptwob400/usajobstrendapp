@@ -1,5 +1,5 @@
 import v4 from 'uuid/dist/v4'
-const FetchJobsData = (array, baseUrl, callback, filter, setloaded) => {
+const FetchJobsData = (array, baseUrl, callback, filter) => {
     array.forEach((item) => {
         const url = `${baseUrl}${item}&ResultsPerPage=1&Fields=min${filter ? "&" + filter : ""}`;
         fetch(url, {
@@ -24,7 +24,6 @@ const FetchJobsData = (array, baseUrl, callback, filter, setloaded) => {
                 })
             return true;
             })
-            .then(data => {setloaded(true)})
     })
 
 }

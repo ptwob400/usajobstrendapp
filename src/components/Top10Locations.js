@@ -1,24 +1,14 @@
-import { useEffect, useState, useContext } from "react"
+import { useContext } from "react"
 import jobsContext from '../context/jobsContext.js'
-import States from '../data/States.json'
 import sortSlice10 from '../utils/SortSlice.js'
 import Top10ResultLinkEntry from './Top10ResultLinkEntry'
 import { CircularProgress } from '@material-ui/core'
-import FetchJobsData from '../utils/FetchJobsData.js'
+import States from '../data/States.json'
 
+function Top10Locations({filter}) {
+    const { locations } = useContext(jobsContext)
 
-function Top10Locations() {
-    const [isloaded, setloaded] = useState(false)
-    const { filter, locations, setLocations } = useContext(jobsContext)
-
-    useEffect(() => {
-        setLocations([])
-        setloaded(false)
-        FetchJobsData(States, "https://data.usajobs.gov/api/search?LocationName=", setLocations, filter, setloaded) 
-
-    }, [filter, setLocations])
-
-    const loadingBar = isloaded ?
+    const loadingBar = States.length === locations.length ?
         (
             <ol>
                 {sortSlice10(locations).map(obj => {

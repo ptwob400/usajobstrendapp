@@ -5,25 +5,18 @@
 // [X] from the results, store the value of the "SearchResultCountAll" key in an array. 
 // [X] display each item in this array in cards in descending order with the results number
 import Keywords from '../data/Keywords.json'
-import { useEffect, useState, useContext } from "react"
+import { useContext } from "react"
 import jobsContext from '../context/jobsContext.js'
 import sortSlice10 from '../utils/SortSlice.js'
 import Top10ResultLinkEntry from './Top10ResultLinkEntry'
 import { CircularProgress } from '@material-ui/core'
-import FetchJobsData from '../utils/FetchJobsData.js'
 
 
-function Top10Keywords() {
-    const [isloaded, setloaded] = useState(false)
-    const { filter, keywords, setKeywords } = useContext(jobsContext);
+function Top10Keywords({filter}) {
+    const { keywords } = useContext(jobsContext);
 
-    useEffect(() => {
-        setKeywords([])
-        setloaded(false)
-        FetchJobsData(Keywords, "https://data.usajobs.gov/api/search?Keyword=", setKeywords, filter, setloaded) 
-    }, [filter, setKeywords])
-
-    const loadingBar = isloaded ?
+ 
+    const loadingBar = Keywords.length === keywords.length ?
         (
             <ol>
                 {sortSlice10(keywords).map(obj => {

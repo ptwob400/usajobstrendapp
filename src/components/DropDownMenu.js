@@ -25,6 +25,7 @@ function DropDownMenu () {
     const classes = useStyles();
     
     const handleUpdateCategory = (event) => {
+        
         setFilter(event.target.value);
     }
 

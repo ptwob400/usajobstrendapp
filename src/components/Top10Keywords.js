@@ -19,7 +19,7 @@ function Top10Keywords() {
             const url = `https://data.usajobs.gov/api/search?Keyword=${word}&ResultsPerPage=1&Fields=min${filter ? "&" + filter : ""}`;
             fetch(url, {
                 method: 'GET',
-                headers: {
+                headers: { 
                   'Content-Type': 'application/json',
                   'User-Agent': 'gordon.deng.1@us.af.mil',
                   'Host': 'data.usajobs.gov',

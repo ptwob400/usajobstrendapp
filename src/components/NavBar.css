@@ -1,0 +1,65 @@
+link.App-header:visited {
+    color: darkred;
+  }
+
+.Nav-header > h1 a {
+    font-size: 1em;
+    color: white;
+    text-decoration: none;
+}
+
+.Nav-header {
+    background-color: #112e51;
+    min-height: 175px;
+    max-height: 250px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: calc(10px + 2vmin);
+    color: darkred;
+
+}
+
+
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 40%;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: .9em;
+    border: thin solid gray;
+    border-radius: 4px;
+    background-color: #1e4d86;
+    padding: .5em 1em;
+    
+}
+
+nav a:hover,
+nav a:focus {
+    box-shadow: 0 0 10px 0 gray;
+}
+
+nav .active-link {
+    color: rgb(0, 255, 255);
+}
+
+
+@media (max-width: 800px) {
+    .Nav-header {
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    nav {
+        flex-direction: column;
+        justify-content: center;
+    }
+}

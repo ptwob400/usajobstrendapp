@@ -1,3 +1,26 @@
+
+// import { NavLink}  from 'react-router-dom'
+
+
+// import './NavBar.css'
+
+// function NavBar() {
+//     return (
+//         <header className="Nav-header">
+//             <h1>
+//                 <NavLink exact to='/' activeClassName="active-link" >
+//                     USJOBS Today
+//                 </NavLink>
+//             </h1>
+//             <nav>            
+//                 <NavLink exact to='/'  activeClassName="active-link" >
+//                     Home
+//                 </NavLink>
+//                 <NavLink to='/trends'  activeClassName="active-link" >
+//                     Trends
+//                 </NavLink>
+//                 <NavLink to='/about'  activeClassName="active-link" >
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -49,9 +72,8 @@ function NavBar() {
                     style={{margin: 15, backgroundColor: 'cadetblue'}}
                 >
                     About
-                </Button>
-                </Link>
-            </div>
+                </NavLink>
+            </nav>
         </header>
     )
 }

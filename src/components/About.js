@@ -1,6 +1,8 @@
 import { Grid, Paper, Button } from '@material-ui/core';
 import Logo from '../assets/Logo.JPG'
 
+import './About.css'
+
 function About() {
     return (
         <div className="About">

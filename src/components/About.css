@@ -1,0 +1,15 @@
+.About {
+    min-height: 500px;
+    max-height: 80%; 
+    width: 70%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-self: center;
+  }
+  
+
+.member-names {
+    list-style-type: none;
+}

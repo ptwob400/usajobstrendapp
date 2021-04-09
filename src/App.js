@@ -3,6 +3,7 @@ import jobsContext from './context/jobsContext.js'
 import './App.css';
 import NavBar from './components/NavBar.js'
 import MainContent from './components/MainContent.js'
+import HomeContent from './components/HomeContent.js'
 import FooterContent from './components/FooterContent.js'
 import {
   BrowserRouter as Router,
@@ -16,7 +17,6 @@ function App() {
   const [ fields, setFields ] = useState([])
   const [ keywords, setKeywords ] = useState([]);
   const [ locations, setLocations ] = useState([])
-  
 
   return (
 
@@ -35,6 +35,9 @@ function App() {
           <NavBar />
           <Switch>
             <Route exact path='/'>
+              <HomeContent />
+            </Route>
+            <Route path='/trends'>
               <MainContent />
             </Route>
             <Route path='/about'>

@@ -3,7 +3,8 @@ import Top10Locations from './Top10Locations.js'
 import Top10Fields from './Top10Fields.js'
 import DropDownMenu from './DropDownMenu.js'
 import { Grid, Paper } from '@material-ui/core';
-import { useState } from 'react';
+
+import './MainContent.css'
 
 function MainContent() {
     return (<body className="Body">

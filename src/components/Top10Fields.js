@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react"
 import jobsContext from '../context/jobsContext.js'
 import Fields from '../data/Fields.js'
 import sortSlice10 from '../utils/SortSlice.js'
-import { CircularProgress } from '@material-ui/core'
+import { CircularProgress, Button } from '@material-ui/core'
 import Top10ResultLinkEntry from './Top10ResultLinkEntry'
 
 var fieldsArray = Fields.split(',')
@@ -42,7 +42,7 @@ function Top10Fields() {
     (
         <ol>
         {sortSlice10(fields).map(obj => {
-            return <Top10ResultLinkEntry type={'k'} name={obj.field} count={obj.count}/>
+            return <li><Button href={`https://www.usajobs.gov/Search/Results?p=1&k=${obj.field}`} style={{fontWeight: "750", color: "#314570"}}>{obj.field} - Jobs Available: {obj.count}</Button></li>
         })}
         </ol>
     ) :

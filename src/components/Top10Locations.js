@@ -3,8 +3,10 @@ import jobsContext from '../context/jobsContext.js'
 import States from '../data/States.json'
 import sortSlice10 from '../utils/SortSlice.js'
 import Top10ResultLinkEntry from './Top10ResultLinkEntry'
+import { CircularProgress } from '@material-ui/core'
 
 function Top10Locations() {
+    const [isloaded, setloaded] = useState(false)
     const { filter, locations, setLocations } = useContext(jobsContext)
 
     useEffect(() => {
@@ -28,17 +30,24 @@ function Top10Locations() {
                         return newStates
                     })
                 })
+                .then(data => {setloaded(true)})
         })
     }, [filter, setLocations])
 
-    return (
-        <article>
-            <h2>Top 10 Locations by Number of Available Jobs</h2>
+    const loadingBar = isloaded ?
+        (
             <ol>
                 {sortSlice10(locations).map(obj => {
                     return <Top10ResultLinkEntry type={'l'} name={obj.state} count={obj.count}/>
                 })}
             </ol>
+        ) :
+        <div><CircularProgress /></div>
+
+    return (
+        <article>
+            <h2>Top 10 Locations by Number of Available Jobs</h2>
+            {loadingBar}
         </article>
     )
 }

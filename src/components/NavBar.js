@@ -21,18 +21,11 @@
 //                 </NavLink>
 //                 <NavLink to='/about'  activeClassName="active-link" >
 
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from 'react-router-dom'
-import { Grid, Paper } from '@material-ui/core';
+import { Link } from 'react-router-dom'
 import HomeTwoToneIcon from '@material-ui/icons/Home';
-import { Button, ButtonBase } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import InfoTwoToneIcon from '@material-ui/icons/InfoTwoTone';
 import HttpTwoToneIcon from '@material-ui/icons/HttpTwoTone';
-import Logo from '../assets/Logo.JPG'
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 
 import './NavBar.css'

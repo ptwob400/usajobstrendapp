@@ -7,7 +7,7 @@ function About() {
         <div className="About">
             <Grid container>
                 <Grid item xs={4}>
-                    <img src={Logo} style={{ width: "auto", height: "370px", margin: 50 }}></img>
+                    <img src={Logo} style={{ width: "auto", height: "370px", margin: 50 }} alt="USAJobs Today"></img>
                 </Grid>
                 <Grid item xs={4}>
                     <Paper style={{ padding: 10, margin: 50, backgroundColor: "WhiteSmoke", minWidth: "300px", width: '75%', minHeight: "350px", height: "auto" }}>

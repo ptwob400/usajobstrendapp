@@ -4,6 +4,8 @@ import States from '../data/States.json'
 import sortSlice10 from '../utils/SortSlice.js'
 import Top10ResultLinkEntry from './Top10ResultLinkEntry'
 import { CircularProgress } from '@material-ui/core'
+import FetchJobsData from '../utils/FetchJobsData.js'
+
 
 function Top10Locations() {
     const [isloaded, setloaded] = useState(false)
@@ -11,34 +13,16 @@ function Top10Locations() {
 
     useEffect(() => {
         setLocations([])
-        States.forEach((state) => {
-            const url = `https://data.usajobs.gov/api/search?LocationName=${state}&ResultsPerPage=1&Fields=min${filter ? "&" + filter : ""}`;
-            fetch(url, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'User-Agent': 'gordon.deng.1@us.af.mil',
-                    'Host': 'data.usajobs.gov',
-                    'Authorization-Key': '8anoUcMouBmDxVIpesVxLsxa0z2IyHXh2bL7iHZdvOA='
-                }
-            })
-                .then(response => response.json())
-                .then(data => {
-                    setLocations((previous) => {
-                        const newStates = [...previous];
-                        newStates.push({ "state": state, "count": data.SearchResult.SearchResultCountAll });
-                        return newStates
-                    })
-                })
-                .then(data => {setloaded(true)})
-        })
+        setloaded(false)
+        FetchJobsData(States, "https://data.usajobs.gov/api/search?LocationName=", setLocations, filter, setloaded) 
+
     }, [filter, setLocations])
 
     const loadingBar = isloaded ?
         (
             <ol>
                 {sortSlice10(locations).map(obj => {
-                    return <Top10ResultLinkEntry type={'l'} name={obj.state} count={obj.count}/>
+                    return <Top10ResultLinkEntry key={obj.jobsId}type={'l'} name={obj.name} count={obj.count}/>
                 })}
             </ol>
         ) :

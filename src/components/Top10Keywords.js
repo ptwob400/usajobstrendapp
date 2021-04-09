@@ -5,7 +5,7 @@
 // [X] from the results, store the value of the "SearchResultCountAll" key in an array. 
 // [X] display each item in this array in cards in descending order with the results number
 import Keywords from '../data/Keywords.json'
-import { useEffect, useContext } from "react"
+import { useEffect, useState, useContext } from "react"
 import jobsContext from '../context/jobsContext.js'
 import sortSlice10 from '../utils/SortSlice.js'
 import Top10ResultLinkEntry from './Top10ResultLinkEntry'

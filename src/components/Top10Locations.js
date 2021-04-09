@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react"
+import { useEffect, useState, useContext } from "react"
 import jobsContext from '../context/jobsContext.js'
 import States from '../data/States.json'
 import sortSlice10 from '../utils/SortSlice.js'

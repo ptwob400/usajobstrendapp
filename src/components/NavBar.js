@@ -33,6 +33,7 @@ import { Button, ButtonBase } from '@material-ui/core';
 import InfoTwoToneIcon from '@material-ui/icons/InfoTwoTone';
 import HttpTwoToneIcon from '@material-ui/icons/HttpTwoTone';
 import Logo from '../assets/Logo.JPG'
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 
 import './NavBar.css'
 
@@ -55,6 +56,16 @@ function NavBar() {
                         style={{margin: 15, backgroundColor: 'cadetblue'}}
                     >
                         Home
+                    </Button>
+                </Link>
+                <Link to='/trends' style={{textDecoration: 'none'}}>
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        startIcon={<TrendingUpIcon />}
+                        style={{margin: 15, backgroundColor: 'cadetblue'}}
+                    >
+                        Trends
                     </Button>
                 </Link>
                 <Button

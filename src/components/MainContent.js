@@ -7,7 +7,7 @@ import { Grid, Paper } from '@material-ui/core';
 import './MainContent.css'
 
 function MainContent() {
-    return (<body className="Body">
+    return (<main className="Body">
         <section>
             <Grid container justify='center'>
                 <Grid item>
@@ -32,7 +32,7 @@ function MainContent() {
                 </Grid>
             </Grid>
         </section>
-    </body>)
+    </main>)
 }
 
 export default MainContent;

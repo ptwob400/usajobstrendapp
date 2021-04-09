@@ -16,8 +16,11 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   list-style-position: inside;
-  height: 100vh;
   width: 100vw;
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 100px; /* height of your footer */
 }
 
 

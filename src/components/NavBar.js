@@ -34,11 +34,13 @@ import InfoTwoToneIcon from '@material-ui/icons/InfoTwoTone';
 import HttpTwoToneIcon from '@material-ui/icons/HttpTwoTone';
 import Logo from '../assets/Logo.JPG'
 
+import './NavBar.css'
+
 function NavBar() {
     return (
-        <header className="App-header">
+        <header className="Nav-header">
             <Link to='/' style={{textDecoration: 'none'}}>
-            <ButtonBase
+                <ButtonBase
                     style={{margin: 15, backgroundColor: 'darkred', fontSize: 25, fontFamily: 'Roboto',}}
                 >
                     <img src={Logo} style={{height: "75px", width: "150px"}}></img>
@@ -46,14 +48,14 @@ function NavBar() {
             </Link>
             <div>            
                 <Link to='/' style={{textDecoration: 'none'}}>
-                <Button
-                    variant="contained"
-                    color="secondary"
-                    startIcon={<HomeTwoToneIcon />}
-                    style={{margin: 15, backgroundColor: 'cadetblue'}}
-                >
-                    Home
-                </Button>
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        startIcon={<HomeTwoToneIcon />}
+                        style={{margin: 15, backgroundColor: 'cadetblue'}}
+                    >
+                        Home
+                    </Button>
                 </Link>
                 <Button
                     variant="contained"
@@ -72,8 +74,9 @@ function NavBar() {
                     style={{margin: 15, backgroundColor: 'cadetblue'}}
                 >
                     About
-                </NavLink>
-            </nav>
+                </Button>
+                </Link>
+            </div>
         </header>
     )
 }

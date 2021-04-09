@@ -1,5 +1,5 @@
 import { Grid, Paper, Button } from '@material-ui/core';
-import Logo from '../assets/Logo.JPG'
+import Logo from '../assets/USAJobs_Today_Logo.png'
 
 import './About.css'
 

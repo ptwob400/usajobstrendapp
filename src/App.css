@@ -14,7 +14,6 @@ body {
 .App {
   list-style-position: inside;
   display: grid;
-
   grid-template-rows: auto 1fr auto;
   list-style-position: inside;
   height: 100vh;

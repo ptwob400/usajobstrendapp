@@ -22,7 +22,7 @@ function Top10Locations() {
         (
             <ol>
                 {sortSlice10(locations).map(obj => {
-                    return <Top10ResultLinkEntry key={obj.jobsId}type={'l'} name={obj.name} count={obj.count}/>
+                    return <Top10ResultLinkEntry key={obj.jobsId}type={'l'} name={obj.name} count={obj.count} filter={filter} />
                 })}
             </ol>
         ) :
